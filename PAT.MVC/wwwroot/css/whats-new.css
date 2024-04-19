@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'JF Flat Bold';
+    src: url('../fonts/JF\ Flat\ Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'JF Flat Regular';
+    src: url('../fonts/JF-Flat-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+body {
+    font-family: 'JF Flat Regular', Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    text-align: start;
+}
+
+.container {
+    margin: 4%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 0px 0px 0px 200px;
+    box-shadow: 0px 4px 20px 5px #00000026;
+}
+
+.whatsNew-header {
+    position: relative;
+    background-image: url(../assets/login/login-header.png);
+    padding: 48px 53px;
+    background-position: center;
+}
+
+.whatsNew-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.whatsNew-header-title {
+    font-family: 'JF Flat Bold';
+    font-size: 32px;
+    margin: 0;
+    color: #BB9417;
+    position: relative;
+    z-index: 1;
+}
+
+.whatsNew-header-subtitle {
+    font-family: 'JF Flat Bold';
+    font-size: 16px;
+    margin: 0;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+
+.card {
+    background: none !important;
+    border: none !important;
+    margin-bottom: 29px;
+}
+
+.card-header {
+    background: none !important;
+    color: #CE1126;
+    font-family: 'JF Flat Bold';
+    font-size: 20px;
+    margin-bottom: 1em;
+    border: none;
+    padding: 0;
+}
+
+.card-text {
+    margin-top: 21px;
+    color: #000000;
+}
+
+.card-title {
+    margin-top: 21px;
+    font-family: 'JF Flat Bold';
+    color: #333333;
+    font-size: 18px;
+}
+
+.whats-new-content {
+    padding: 75px;
+}
+
+.pagination {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    direction: ltr;
+    flex-wrap: wrap;
+}
+
+.page-number {
+    color: #515151;
+    padding: 7px 12px;
+    border-radius: 4px;
+}
+
+.page-number:hover,
+.page-number:active,
+.page-number:focus,
+.active {
+    background-color: #CE1126;
+    color: white;
+    text-decoration: none;
+}
+
+.page-btn {
+    color: #BB9417;
+    background: none;
+    border: none;
+}
+
+.page-btn:active,
+.page-btn:focus {
+    border: none;
+    outline: none;
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+@media (max-width: 600px) {
+    .whats-new-content {
+        padding: 37px;
+    }
+
+    .card-text,
+    .card-title {
+        margin-top: 9px;
+    }
+}

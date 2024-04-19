@@ -1,0 +1,59 @@
+﻿@using PAT.Provider.Info.Dtos
+@model BranchToReturnDto
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+          integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv"
+          crossorigin="anonymous" />
+
+    <link href="~/css/branches.css" rel="stylesheet" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Document</title>
+</head>
+
+    
+    <!-- MAIN -->
+    <main class="main">
+        <!-- FORM -->
+        <form  method="post">
+            <h2>
+                <label for="governorates" class="form-label">
+                    قم باختيار المحافظة التى ترغب فى عرض بيانات الفرع التابع لها :
+                </label>
+            </h2>
+            <select id="governorates" asp-for="BranchId" asp-items="Model.BranchesDrobDownItems" class="form-select">
+                <option value=""></option>
+            </select>
+        </form>
+
+        <!-- CARDS -->
+        <section class="results">
+            <!-- Branch Details Partial view loaded by AJAX call according to BranchId -->
+            
+
+        </section>
+    </main>
+
+    
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+            integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
+            integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <script>
+        feather.replace();
+    </script>
+
+@section Scripts{
+    <script src="~/js/branchDetails.js" asp-append-version="true"></script>
+}

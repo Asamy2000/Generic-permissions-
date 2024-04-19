@@ -1,0 +1,52 @@
+﻿@model PAT.AccessModel.Models.Info.UserCertificates
+
+@{
+    ViewData["Title"] = "Certificate Details";
+}
+
+<h2>Certificate Details</h2>
+
+<div>
+    <h4>User Certificate</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.certificateTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.certificateTitle)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.certificateType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.certificateType)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.certificateUserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.certificateUserName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.certificateIssueDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.certificateIssueDate)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.certificateExpiryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.certificateExpiryDate)
+        </dd>
+
+        <!-- Add more fields as needed -->
+    </dl>
+</div>
+
+<a asp-action="Index">Back to List</a>

@@ -1,0 +1,70 @@
+﻿@using PAT.Provider.Info.Dtos
+@model MinisterialEmploymentDescisionsToReturnDto
+@{
+ViewData["Title"] = "Index";
+}
+
+
+<head>
+
+
+  <link rel="stylesheet" href="~/css/decisions.css" asp-append-version="true" />
+
+  <title>Document</title>
+</head>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="banner">
+      <div class="banner_header-container">
+        <h1 class="banner__header">القرارات الوزاريه</h1>
+            <p class="banner__crumbs">الرئيسية>>القرارات الوزاريه</p>
+      </div>
+    </div>
+  </header>
+  <!-- MAIN-->
+  <div class="main decisions mt-4">
+    <div class='dropdown dropdown-news'>
+        <select id="categorySelect" class="form-select select-styled mb-3" onchange="filterDecisionByCategory()">
+            <option disabled selected value="">إختر القسم</option>
+            @foreach (var item in Model.CategoryList)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+    <div class="decisionsContainer">
+        @foreach (var decision in Model.ministerialEmploymentDescisions)
+        {
+
+            <div class="card col-md-3">
+                <h6 class="card-text">@decision.Title</h6>
+                <div class="date-container">
+                    <small class="text-muted">@decision.DeciesionCategory.CategoryName</small>
+                    <a href="http://101.44.222.243:3000/Images/DecionsFiles/@decision.PdfFileName" class='read-more'>تابع القراءة</a>
+                </div>
+            </div>
+
+        }
+    </div>
+
+
+  </div>
+  <!-- Footer-->
+
+<script>
+    function filterDecisionByCategory() {
+        var selectedCategory = document.getElementById("categorySelect").value;
+      
+        var url = `@Url.Action("FilterCategoryDecisions", "Decisions")?category=${selectedCategory}`;
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector(".decisionsContainer").innerHTML = html;
+            })
+            .catch(error => console.error('Error loading the decisions:', error));
+    }
+</script>
+
+
+

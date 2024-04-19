@@ -1,0 +1,58 @@
+﻿@using PAT.AccessModel.Models.Info
+@model List<TeamMembers>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>team</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/css/team.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="team-header">
+        <h2 class="team-header-title">
+            فريق عمل الاكاديمية </h2>
+        <div class="team-header-subtitle">
+            عن الاكاديمية >> فريق عمل الاكاديمية </div>
+            <button class="banner__help">
+                <img src="~/assets/help-icon.svg" alt="" srcset="" />المساعدة
+              </button>
+    </header>
+    <div class="container team-container" >
+        <div class="row justify-content-center">
+            <div class="col-md-3 team-card CEO-card">
+                <div class="text-glass">
+										<h5 class="name">@Model.FirstOrDefault()?.Name</h5>
+                    <div class="job-title">@Model.FirstOrDefault()?.Position</div>
+                </div>
+            </div>
+        </div>
+				<div class="row">
+					@foreach (var item in Model.Skip(1))
+					{
+						<div class="col-md-3">
+							<div class="team-card" style="background-image: url(@item.Image);">
+								<div class="text-glass">
+									<h5 class="name">@item.Name</h5>
+									<div class="job-title">@item.Position</div>
+								</div>
+							</div>
+						</div>
+					}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

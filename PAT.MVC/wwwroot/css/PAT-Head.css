@@ -1,0 +1,166 @@
+:root {
+    --primary-red: #ce1126;
+    --primary-blue: #051d40;
+    --primary-darkgrey: #333333;
+    --primary-lightgrey: #bcbcbb;
+    --primary-black: #000000;
+    --secondary-darkyellow: #9d7c33;
+    --secondary-lightyellow: #bb9417;
+    --secondary-green: #027a3d;
+    --secondary-teal: #264955;
+    --secondary-midgrey: #adbcc0;
+
+    --divider: #ebebeb;
+}
+
+@font-face {
+    font-family: "JF Flat";
+    src: url("../fonts/JF-Flat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "JF Flat Bold";
+    src: url("../fonts/JF\ Flat\ Bold.ttf");
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "JF Flat";
+    list-style: none;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "JF Flat Bold";
+}
+
+a,
+a:visited,
+a:focus {
+    text-decoration: none;
+    color: var(--secondary-midgrey);
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 161px;
+    object-fit: cover;
+    object-position: 100% 70%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("/assets/contactus-header.jpeg");
+    background-position: center;
+}
+
+.banner_header-container {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+}
+
+.banner__header {
+    color: var(--secondary-lightyellow);
+}
+
+.banner__crumbs {
+    color: white;
+}
+
+
+section h2 {
+    color: var(--primary-red);
+    font-size: 1.5rem;
+}
+
+.main h5,
+.main h6 {
+    color: var(--primary-blue);
+}
+
+
+
+.name-card {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.name-card img {
+    width: 20rem;
+    height: 15rem;
+    border-radius: 10px;
+    box-shadow: 0px 20px 20px 0px #12151A1A;
+}
+
+.name-card p {
+    color: var(--primary-red);
+    font-family: "JF Flat Bold";
+    font-size: 1.5rem;
+}
+
+table,
+th,
+td {
+    border: 1px solid var(--primary-red);
+}
+
+.experience-table th,
+.certificate-table th {
+    text-align: center;
+    font-family: "JF Flat Bold";
+    color: var(--primary-blue);
+}
+
+tr:nth-child(even) {
+    background-color: var(--divider);
+}
+
+.basic-data__table th {
+    padding-right: 1rem;
+    color: var(--primary-blue);
+    font-family: "JF Flat Bold";
+}
+
+.director h3 {
+
+    font-family: "JF Flat Bold";
+    color: var(--primary-red)
+}
+
+.director-info {
+    width: 40%
+}
+
+.director table {
+    width: 100%;
+}
+
+
+.minister li {
+    list-style-type: square;
+}
+
+.minister li::marker {
+    color: var(--primary-red);
+    font-size: 1.5rem;
+}
+
+.info-table {
+    margin-top: 2rem;
+}

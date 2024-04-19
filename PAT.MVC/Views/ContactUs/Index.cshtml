@@ -1,0 +1,120 @@
+﻿@using PAT.Provider.Info.Dtos
+@model ContactUsDto
+
+<head>
+
+  <title>إتصل بنا</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous" />
+
+  <link href="~/css/contact-us.css" rel="stylesheet" />
+</head>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="banner">
+      <div class="banner_header-container">
+        <h1 class="banner__header">اتصل بنا</h1>
+        <p class="banner__crumbs">الصفحة الرئيسية >> اتصل بنا</p>
+      </div>
+    </div>
+    <div class="sub_header">
+      <h2>الاكاديمية المهنية للمعلمين ترحب بإتصالكم والتواصل معكم</h2>
+      <p>
+        فى إطار الدور المهم الذى تقوم به وزارة التربية والتعليم للنهوض
+        بالتعليم قبل الجامعى ، ترحب وزارة التربية والتعليم بالإتصال والتواصل
+        مع زائرى الموقع بجميع الطرق المتاحة
+      </p>
+    </div>
+  </header>
+  <!-- CONTACT INFO -->
+  <section class="contact-info">
+    <h2 class="contact-info__header">معلومات التواصل للفرع الرئيسى</h2>
+    <div class="contact-container d-flex justify-space-between">
+      <div class="contact-info_col1">
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="mail"></i>البريد الالكترونى الرسمى :
+          </h6>
+          <p class="contact-info__field-data"> info@pat.edu.eg</p>
+        </div>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="map-pin"></i>عنوان الأكاديمية ( المقر الرئيسي ) :
+          </h6>
+          <p class="contact-info__field-data">
+            مدينة السادس من أكتوبر – المدينة التعليمية ” الأكاديمية المهنية
+            للمعلمين ”
+          </p>
+        </div>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="clock"></i>مواعيد العمل الرسمية :3
+          </h6>
+          <p class="contact-info__field-data">
+            من الساعة ( 8,30 صباحاً ) الى الساعة ( 3 مساءً ) من الأحد إلى
+            الخميس .. فيما عدا الأجازات الرسمية
+          </p>
+        </div>
+      </div>
+      <div class="contact-info_col12">
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="phone"></i>خدمة المواطنين ( الإستفسارات والشكاوى
+          </h6>
+          <p class="contact-info__field-data"> الرقم الموحد : 090071666</p>
+        </div>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="mail"></i>البريد الالكترونى الرسمى :
+          </h6>
+          <p class="contact-info__field-data">complaints@pat.edu.eg</p>
+        </div>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="help-circle"></i>بوابة الشكاوى الحكومية  :
+          </h6>
+          <p class="contact-info__field-data">www.shakwa.eg</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACT FORM -->
+  <section class="contact-form">
+    <h2 class="contact-form__header">
+      سوف نقوم بالرد على جميع استفساراتكم و اقتراحاتكم
+    </h2>
+    <div class="contact-form__container">
+        <form action="/ContactUs/Index" class="contact-form__form">
+        <input asp-for="Name" type="text" placeholder="الاسم" class="form-control" />
+        <input asp-for="PhoneNumber" type="tel" placeholder="رقم التليفون" class="form-control" />
+            <select asp-for="ContactUsTopicId" asp-items="@Model.ContactUsTopicDrobDownItems" id="message-subject" default="" class="form-select">
+          اختر موضوع الرسالة
+
+          <option selected>اختر موضوع الرسالة</option>
+          <option value=""></option>
+
+        </select>
+        <textarea asp-for="Message" class="form-control"  cols="30" rows="10" placeholder="اترك رسالتك هنا ....."></textarea>
+        <button type="submit">إرسال</button>
+      </form>
+      <div class="contact-form__img">
+        <img src="/assets/contact-us.jpeg" alt="اتصل بنا" srcset="" />
+      </div>
+    </div>
+  </section>
+  <!-- Footer-->
+
+  <!-- SCRIPTS -->
+@section Scripts{
+
+    <script src="~/Views/ContactUs/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script>
+        feather.replace();
+    </script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+}
+

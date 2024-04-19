@@ -1,0 +1,55 @@
+﻿@using PAT.AccessModel.Models.Info
+@model List<UserCertificates>
+@{
+    ViewData["Title"] = "UserCertificates";
+}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">My Certificates</h3>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped projects table-responsive">
+            <thead>
+                <tr>
+                    <th style="width: 1%">#</th>
+                    <th style="width: 20%">Certificate Title</th>
+                    <th style="width: 20%">Issued To</th>
+
+                    <th style="width: 20%">Issue Date</th>
+                    <th style="width: 20%">Expiry Date</th>
+                    <th style="width: 20%">Status</th>
+                    <th style="width: 20%"> Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var certificate in Model)
+                {
+                    <tr>
+                        <td>#</td>
+                        <td>@certificate.certificateTitle</td>
+                        <td>@certificate.certificateUserName</td>
+                        <td>@certificate.certificateIssueDate.ToShortDateString()</td>
+                        <td>@certificate.certificateExpiryDate.ToShortDateString()</td>
+                        <td>@certificate.certificateStatus</td>
+                        @if (certificate.certificateStatus == PAT.AccessModel.Enums.UserCertificateStatus.Renewal)
+                        {
+                            <td>
+                                <a href="@Url.Action("CreateRenewal", "UserCertificateRequest", new { id = certificate.id })" class="btn btn-primary btn-sm">New</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <a href="@Url.Action("CreateReplacement", "UserCertificateRequest", new { id = certificate.id })" class="btn btn-primary btn-sm">Replace</a>
+                            </td>
+                        }
+                
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

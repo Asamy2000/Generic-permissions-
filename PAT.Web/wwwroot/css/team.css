@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'JF Flat Bold';
+    src: url('../fonts/JF\ Flat\ Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'JF Flat Regular';
+    src: url('../fonts/JF-Flat-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+body {
+    font-family: 'JF Flat Regular', Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    text-align: start;
+}
+
+.container {
+    padding: 26px 36px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.team-header {
+    position: relative;
+    background-image: url(../assets/login/login-header.png);
+    padding: 48px 53px;
+    background-position: center;
+}
+
+.team-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.team-header-title {
+    font-family: 'JF Flat Bold';
+    font-size: 32px;
+    margin: 0;
+    color: #BB9417;
+    position: relative;
+    z-index: 1;
+}
+
+.team-header-subtitle {
+    font-family: 'JF Flat Bold';
+    font-size: 16px;
+    margin: 0;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+
+.help-container{
+    position: absolute;
+    border-radius: 20px 20px 20px 0px;
+    background-color: #BB9417;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    bottom: -25px;
+    left: 70px;
+}
+.help-container:hover{
+    text-decoration: none;
+    color: white;
+}
+
+
+.team-card{
+    border: 3.42px solid #BCBCBB;
+    border-radius: 50px;
+    height: 200px;
+    background-size: cover;
+    display: flex;
+    align-items: end;
+    padding: 0;
+    background-image: url(../assets/all-news/latest-news-example.jpg);
+    
+}
+
+.text-glass{
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    color: white;
+    width: 100%;
+    padding: 7px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    }
+
+    .name , .job-title{
+        font-family: 'JF Flat Bold';
+        font-size: 16px;
+    }

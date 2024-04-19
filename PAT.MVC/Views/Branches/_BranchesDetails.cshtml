@@ -1,0 +1,62 @@
+﻿@using PAT.Provider.Info.Dtos
+@model BranchDetailsToReturnDto
+<div class="results__manager">
+    <div class="result__header">بيانات مدير الفرع</div>
+    <div class="results__data">
+        <h5> 
+         @Model.branchManager    
+        </h5>
+        <h6>
+            <i data-feather="mail"></i>
+            البريد الإلكتروني الرسمي لمدير الفرع :
+        </h6>
+        <p>@Model.branchManagerEmail</p>
+    </div>
+</div>
+<div class="results__stats">
+    <div class="result__header">معلومات إحصائية</div>
+    <div class="results__data">
+
+        <p class="stat-num">@Model.statistics</p>
+    </div>
+</div>
+<div class="results__contact">
+    <div class="result__header">معلومات التواصل</div>
+    <div class="results__data">
+        <div class="col1">
+            <div class="result-info__field">
+                <h6 class="result-info__field-header">
+                    <i data-feather="map-pin"></i>عنوان الأكاديمية ( المقر الرئيسي
+                    ) :
+                </h6>
+                <p class="result-info__field-data">
+                   
+                   @Model.branchAddress
+                </p>
+            </div>
+            <div class="result-info__field">
+                <h6 class="result-info__field-header">
+                    <i data-feather="phone"></i>خدمة المواطنين ( الإستفسارات
+                    والشكاوى
+                </h6>
+                <p class="result-info__field-data"> الرقم الموحد : @Model.branchPhone</p>
+            </div>
+        </div>
+        <div class="col2">
+            <div class="result-info__field">
+                <h6 class="result-info__field-header">
+                    <i data-feather="phone"></i>خدمة المواطنين ( الإستفسارات
+                    والشكاوى
+                </h6>
+                <p class="result-info__field-data"> الرقم الموحد : @Model.branchPhone</p>
+            </div>
+            <div class="result-info__field">
+                <h6 class="result-info__field-header">
+                    <i data-feather="mail"></i>خدمة المواطنين ( الإستفسارات
+                    والشكاوى
+                </h6>
+                <p class="result-info__field-data"> الرقم الموحد : @Model.branchPhone</p>
+            </div>
+        </div>
+    </div>
+</div>

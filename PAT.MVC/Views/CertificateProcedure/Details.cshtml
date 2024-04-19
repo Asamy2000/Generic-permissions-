@@ -1,0 +1,58 @@
+﻿@model InquiryCertVM
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/item-details.css" rel="stylesheet" />
+    <title>Document</title>
+
+</head>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="banner">
+            <div class="banner_header-container">
+                <h1 class="banner__header">الشهادات</h1>
+                <p class="banner__crumbs">الرئيسية>> الشهادات</p>
+            </div>
+        </div>
+    </header>
+<section class="item-details">
+
+    <h2 class="item-header">الشهادات</h2>
+
+
+    <form asp-action="Details" asp-controller="UserCertificate" class="procedure-form">
+        <div class="row">
+            <img src="http://101.44.222.243:3000/Images/CertificatesInquiryImage/@Model.IMagePath" />
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">رقم الشهاده :</label>
+                <input asp-for="CertificateSerial" class="form-control" placeholder="أدخل رقم الشهاده">
+                
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">إستعلام</button>
+
+    </form>
+    <h3 class="item-subheader">الاجراءات</h3>
+    <ul class="content">
+        @foreach (var item in Model.CertificateProceduresList)
+        {
+            <h3 class="item-subheader">
+                @item.Name
+            </h3>
+            foreach (var procedure in item.CertificateProcedure)
+            {
+                <li style="margin-right:2rem" >
+                    @procedure.Description
+                </li>
+            }
+        }
+
+    </ul>
+
+</section>

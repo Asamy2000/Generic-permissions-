@@ -1,0 +1,36 @@
+﻿@using PAT.AccessModel.Models.Info.FooterModels
+@model Footer
+@{
+    ViewData["Title"] = "Default";
+}
+
+<footer class="footer w-100 bg-black d-flex flex-wrap justify-content-evenly color-white color text-bg-dark align-items-center">
+    <div class="brand-logo">
+        <img src="http://101.44.222.243:3000/Images/FooterLogo/@Model.LogoPath" alt="المهلم" />
+    </div>
+    @foreach(var fooSection in Model.Sections)
+    {
+            if(fooSection.IsActive == true)
+            {
+                <ul class="footer__list">
+                    <h4>@fooSection.Name</h4>
+                    @foreach(var link in fooSection.Links){
+                        if(link.IsActive == true)
+                        {
+                            <li><a href="@link.Url">@link.Name</a></li>
+                        }
+                    }
+                </ul>
+            }
+        
+    }
+
+    <div class="footer__video">
+        <h4>قناة الاكاديمية</h4>
+        <iframe src="@Model.YoutubeLink" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+    </div>
+</footer>
+

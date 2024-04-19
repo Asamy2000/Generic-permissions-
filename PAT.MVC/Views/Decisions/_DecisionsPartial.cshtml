@@ -1,0 +1,12 @@
+﻿@using PAT.AccessModel.Models.Info
+@model List<MinisterialEmploymentDescisions>
+@foreach (var decision in Model)
+{
+    <div class="card col-md-3">
+        <h6 class="card-text">@decision.Title</h6>
+        <div class="date-container">
+            <small class="text-muted">@decision.DeciesionCategory.CategoryName</small> 
+            <a href="@($"http://101.44.222.243:3000/Images/DecionsFiles/{decision.PdfFileName}")" class='read-more'>تابع القراءة</a>
+        </div>
+    </div>
+}

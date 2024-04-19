@@ -1,0 +1,36 @@
+﻿@using PAT.AccessModel.Models.Info
+@model List<AccreditationProcedure>
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/item-details.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="banner">
+            <div class="banner_header-container">
+                <h1 class="banner__header">الأعتمادات</h1>
+                <p class="banner__crumbs">الرئيسية>> الأعتمادات</p>
+            </div>
+        </div>
+    </header>
+    <section class="item-details">
+        <h2 class="item-header">الأعتمادات</h2>
+        <h3 class="item-subheader">الاجراءات</h3>
+        <ul class="content">
+            @foreach (var item in Model)
+            {
+                <li>
+                    @item.Description
+                </li>
+            }
+           
+        </ul>
+        <button class="register-item">التسجيل</button>
+    </section>

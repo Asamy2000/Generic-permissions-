@@ -1,0 +1,21 @@
+﻿@using PAT.AccessModel.Models.Info
+@model List<AcademyMagazine>
+@foreach (var magazine in Model)
+{
+    <div class="card col-md-3">
+        <img src="http://101.44.222.243:3000/Images/AcademyMagazine/@magazine.CoverImageName"
+             alt="new"
+             class="card-img" />
+        <h6 class="card-title">
+            @magazine.Title
+        </h6>
+        <p class="card-text">
+            @magazine.Description
+        </p>
+        <div class="date-container d-flex justify-content-between align-items-center">
+            <p class="text-muted">  @magazine.CreationDate</p>
+            <p class="text-muted">رقم العدد : @magazine.MagazineNumber</p>
+            <a href="http://101.44.222.243:3000/Images/AcademyMagazine/@magazine.PdfFileName" class="read-more">تحميل العدد</a>
+        </div>
+    </div>
+}

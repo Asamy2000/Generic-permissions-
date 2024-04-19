@@ -1,0 +1,223 @@
+﻿@* @using PAT.Provider.Info.Dtos
+@model FAQToReturnDto
+
+@{
+   ViewData["Title"] = "Index";
+}
+
+@{
+
+    int faqIndex = 0;
+}
+<head>
+    <title>الأسئله الشائعه</title>
+
+    <link href="~/css/commonQuestions.css" rel="stylesheet" />
+</head>
+
+    <header class="commonQestions-header">
+        <h2 class="commonQestions-header-title">
+            الاسئلة الشائعة
+        </h2>
+        <div class="commonQestions-header-subtitle">
+            الرئيسية>>الاسئلة الشائعة
+        </div>
+    </header>
+
+<div class="container">
+ <form>
+        <div class='dropdown dropdown-news w-25'>
+            <select id="faqCategorySelect" name="CategoryId" asp-items="@Model.CategoryList" class="form-select select-styled" aria-label="Default select example" onchange="filterFAQsByCategory()">
+                <option disabled selected value="">إختر القسم</option>
+
+            </select>
+        </div>
+
+
+
+
+
+    <div class="all-faqs-gallery row container">
+
+            @foreach (var faq in Model.FAQsList)
+            {
+                <div class="commonQuestions-title mt-2">
+                    الأسئلة الشائعة عن : @faq.Header
+                </div>
+                <div class="accordion" id="accordion-@faqIndex">
+                    @for (int i = 0; i < faq.FaQQuestionAnswer.Count; i++)
+                    {
+                        var question = faq.FaQQuestionAnswer[i];
+
+                        string collapseId = $"collapse-{faqIndex}-{i}";
+
+                        <div class="card">
+                            <div class="card-header" id="heading-@collapseId">
+                                <h6 class="mb-0">
+                                    <button class="toggle-header" data-toggle="collapse" data-target="#@collapseId"
+                                            aria-expanded="false" aria-controls="@collapseId">
+                                        @question.Question
+                                        <i class="fas fa-angle-down rotate"></i>
+                                    </button>
+                                </h6>
+                            </div>
+
+                            <div id="@collapseId" class="collapse" aria-labelledby="heading-@collapseId" data-parent="#accordion-@faqIndex">
+                                <div class="card-body">
+                                    @question.Answer
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                faqIndex++;
+            }
+
+    </div>
+    </form>
+</div>
+
+
+
+@section Scripts{
+
+
+    <script>
+
+
+
+        function filterFAQsByCategory() {
+            var selectedCategory = document.getElementById("faqCategorySelect").value;
+
+
+            var url = `/FAQ/FilterCategoryFAQs?category=${selectedCategory}`;
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector(".all-faqs-gallery").innerHTML = html;
+                })
+                .catch(error => console.error('Error loading the magazines:', error));
+        }
+
+    </script>
+
+}
+
+ 
+
+ *@
+
+
+@using PAT.Provider.Info.Dtos
+@model FAQToReturnDto
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<head>
+    <title>الأسئله الشائعه</title>
+
+    <link href="~/css/commonQuestions.css" rel="stylesheet" />
+</head>
+
+<header class="commonQestions-header">
+    <h2 class="commonQestions-header-title">
+        الاسئلة الشائعة
+    </h2>
+    <div class="commonQestions-header-subtitle">
+        الرئيسية>>الاسئلة الشائعة
+    </div>
+</header>
+<form class="m-5">
+    <select style="width:25%" id="faqCategorySelect1" name="CategoryId" asp-items="@Model.CategoryList" class="form-select" aria-label="Default select example" onchange="filterFAQsByCategory()">
+        <option disabled selected>Open this select menu</option>
+    </select>
+
+
+    </div>
+</form>
+<div id="faqsContainer" class="container">
+    @{
+
+        int faqIndex = 0;
+    }
+    @foreach (var faq in Model.FAQsList)
+    {
+        <div class="commonQuestions-title mt-2">
+            الأسئلة الشائعة عن : @faq.Header
+        </div>
+        <div class="accordion" id="accordion-@faqIndex">
+            @for (int i = 0; i < faq.FaQQuestionAnswer.Count; i++)
+            {
+                var question = faq.FaQQuestionAnswer[i];
+
+                string collapseId = $"collapse-{faqIndex}-{i}";
+
+                <div class="card">
+                    <div class="card-header" id="heading-@collapseId">
+                        <h6 class="mb-0">
+                            <button class="toggle-header" data-toggle="collapse" data-target="#@collapseId"
+                                    aria-expanded="false" aria-controls="@collapseId">
+                                @question.Question
+                                <i class="fas fa-angle-down rotate"></i>
+                            </button>
+                        </h6>
+                    </div>
+
+                    <div id="@collapseId" class="collapse" aria-labelledby="heading-@collapseId" data-parent="#accordion-@faqIndex">
+                        <div class="card-body">
+                            @question.Answer
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        faqIndex++;
+    }
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+    const buttons = document.querySelectorAll('.toggle-header');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const rotateElement = button.querySelector('.rotate');
+            if (rotateElement) {
+                rotateElement.classList.toggle('collapsed-btn');
+            }
+        });
+    });
+
+
+
+</script>
+
+
+
+<script>
+
+
+
+    function filterFAQsByCategory() {
+        var selectedCategory = document.getElementById("faqCategorySelect1").value;
+
+        var url = `/FAQ/FilterCategoryFAQs?category=${selectedCategory}`;
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector("#faqsContainer").innerHTML = html;
+            })
+            .catch(error => console.error('Error loading the magazines:', error));
+    }
+
+</script>

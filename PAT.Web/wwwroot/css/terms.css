@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'JF Flat Bold';
+    src: url('../fonts/JF\ Flat\ Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'JF Flat Regular';
+    src: url('../fonts/JF-Flat-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+body {
+    font-family: 'JF Flat Regular', Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    text-align: start;
+}
+
+.container {
+    margin: 4%;
+    padding: 26px 36px;
+    background-color: #fff;
+    box-shadow: 0px 4px 20px 5px #00000026;
+}
+
+.terms-header {
+    position: relative;
+    background-image: url(../assets/login/login-header.png);
+    padding: 48px 53px;
+    background-position: center;
+}
+
+.terms-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.terms-header-title {
+    font-family: 'JF Flat Bold';
+    font-size: 32px;
+    margin: 0;
+    color: #BB9417;
+    position: relative;
+    z-index: 1;
+}
+
+.terms-header-subtitle {
+    font-family: 'JF Flat Bold';
+    font-size: 16px;
+    margin: 0;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.terms-title{
+    font-family: 'JF Flat Bold';
+color: #CE1126;
+font-size: 26px;
+margin: 15px 0;
+}
+
+.terms-paragraph{
+    font-size: 16px;
+    line-height: 33px;
+    text-align: start;
+    
+    
+}
+
+.terms-sub-title{
+    font-size: 16px;
+    margin: 26px 0;
+    font-family: 'JF Flat Bold';
+}
+
+.help-container{
+    position: absolute;
+    border-radius: 20px 20px 20px 0px;
+    background-color: #BB9417;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    bottom: -25px;
+    left: 70px;
+}
+.help-container:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.info-paragraph{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+
+}
+
+.info-list-item {
+    list-style-type: square; 
+
+
+}
+
+.info-list-item::marker{
+    color: #CE1126;
+}
+
+.confirm-text{
+    padding: 10px;
+    font-size: 16px;
+}

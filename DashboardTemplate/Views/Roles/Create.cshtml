@@ -1,0 +1,26 @@
+﻿@using PAT.AccessModel.Models.Info
+@model Role
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card card-primary mt-5">
+    <div class="card-header">
+        <h3 class="card-title">إضافة دور</h3>
+    </div>
+
+    <form asp-action="Create">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> اسم الدور :</label>
+                <input asp-for="Name" class="form-control" id="exampleInputEmail1" placeholder="أدخل اسم الدور">
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">إضافه</button>
+        </div>
+    </form>
+</div>
+

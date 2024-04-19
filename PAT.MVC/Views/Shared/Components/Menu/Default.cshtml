@@ -1,0 +1,46 @@
+﻿@model MenuViewModel
+@{
+    ViewData["Title"] = "Default";
+}
+
+<nav  class="nav-light mb-0">
+    <ul style="padding:7px">
+        <li class="nav-logo">
+            <a href="" class="nav-logo-link"><img src="http://101.44.222.243:3000/Images/menuLogo/@Model.LogoName" alt="" srcset="" /></a>
+        </li>
+
+        <li class="home-icon">
+            <a href="/Home/Index"><img src="~/assets/home-icon.svg" alt=""></a>
+        </li>
+            @foreach(var drobdown in Model.Dropdowns){
+            if(drobdown.IsActive == true)
+            {
+                <li>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @drobdown.DropdownName
+                        </button>
+                        <ul class="dropdown-menu">
+                            @foreach (var item in drobdown.DrobdownLinks)
+                            {
+                                if(item.IsActive == true)
+                                {
+                                    <li><a class="dropdown-item" href="@item.LinkUrl">@item.LinkName</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </li>
+            }
+        }
+        
+            @foreach(var link in Model.MenuLinks){
+            if (link.IsActive == true)
+                {
+                <li><a href="@link.LinkUrl">@link.LinkName</a></li>
+                }
+            }
+
+    </ul>
+</nav>
+

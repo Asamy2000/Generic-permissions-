@@ -1,0 +1,52 @@
+﻿@using PAT.AccessModel.Models.Info;
+@model TopHeader
+
+@{
+    ViewData["Title"] = "Default";
+}
+
+
+<nav class="nav-dark">
+    <a href="/FAQ/Index" class="faq">الأسئلة الشائعة</a>
+    <ul class="social-media">
+
+        @foreach (var item in Model.ICons)
+        {
+            if(item.IsActive == true)
+            {
+                <li>
+                    <a href="@item.ContactLink">
+                        <i data-feather="@item.ContactName"></i>
+                    </a>
+                </li>
+            }
+        }
+
+    </ul>
+    <ul class="users user-actions">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li><i class="fas fa-user-circle"></i></li>
+        }
+        else
+        {
+            <li><a asp-action="Login" asp-controller="User" class="users_register">تسجيل الدخول</a></li>
+            <li><a asp-action="Register" asp-controller="User" class="users_login">حساب جديد</a></li>
+        }
+    </ul>
+    <input type="search" class="search" placeholder="ابحث..." />
+    <div class="lang-switch">
+        <input class="input" id="toggle" type="checkbox" />
+        <label class="label" for="toggle">
+            <div class="left">EN</div>
+            <div class="switch">
+                <span class="slider round"></span>
+            </div>
+            <div class="right">ع</div>
+        </label>
+    </div>
+    <p class="contact">الاستفسارات والشكاوى :@Model.ComplainsPhone  </p>
+</nav>
+
+
+

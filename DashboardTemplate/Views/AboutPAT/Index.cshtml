@@ -1,0 +1,33 @@
+﻿@using PAT.AccessModel.Models.Info
+@model AboutUs
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Test View Index</h3>
+    </div>
+
+    <div class="card-body">
+        <h4>Test 1</h4>
+        <hr />
+        <div class="form-group">
+            <label > @Model.Vision</label>
+        </div>
+        <h4>Test 2 </h4>
+        <hr />
+        <label > @Model.Mission</label>
+            <br />
+            <h4>Test 3</h4>
+        <hr />
+        <label > @Model.Responsibilities</label>
+            <br />
+            
+
+    </div>
+
+</div>
+<a class="btn btn-primary btn-lg  mt-2" asp-controller="AboutPAT" asp-action="CreateAbout">
+    <i class="fas fa-pencil-alt"></i>
+</a>
+

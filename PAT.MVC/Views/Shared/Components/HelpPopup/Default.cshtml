@@ -1,0 +1,86 @@
+﻿@model PopupVM
+@{
+    ViewData["Title"] = "Default";
+}
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class=" banner__help" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <img src="/assets/help-icon.svg" alt="" srcset="" />المساعدة
+</button> 
+
+ <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-center w-100" id="staticBackdropLabel">التواصل</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item ">
+                        <a class="nav-link faq-tab active" aria-current="page" href="#">المساعدة</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link help-tab" href="#">المراسلة</a>
+                    </li>
+                </ul>
+                <div class="faqs">
+                    <form>
+                    <label for="form-select">كيف يمكنني مساعدتك ؟</label>
+                        <select id="faqCategorySelect" name="FAQTypeId" asp-items="@Model.FAQTypes" class="form-select" aria-label="Default select example" onchange="filterFAQsByCategory()">
+                        <option disabled selected>Open this select menu</option>
+                          </select>                  
+                    <div class="suggested-faqs">
+                        <h3>ملحوظة</h3>
+                        <p> عند الظغط على السؤال سوف تنتقل الى صفحة بها اجابة سؤالك بالتفصيل </p>
+                        
+                        
+                    </div>
+                    </form>
+                </div>
+                <div class="help">
+                    <form action="/Home/Create" method="post" class="help-popup-form">
+                        @Html.AntiForgeryToken()
+                    <select name="TypeId" asp-items="@Model.Types"  class="popup-select" required>
+                        <option selected disabled>اختر نوع المراسلة</option>
+                    </select>
+                    <select name="BranchId" asp-items="@Model.Branches" class="popup-select">
+                        <option selected disabled> اختر الفرع</option>
+                    </select>
+                     <label for="popup-input">الموضوع</label>
+                        <input name="Topic" type="text" class="popup-input" placeholder="عنوان الموضوع" required>
+                    <label for="popup-textarea">الرسالة</label>
+                        <textarea name="MessageBody" class="popup-textarea" placeholder="اكتب رسالتك هنا" required></textarea>
+                    <button type="submit" class="help-popup-submit">إرسال</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-bs-dismiss="modal">إغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+
+    function filterFAQsByCategory() {
+        var selectedCategory = document.getElementById("faqCategorySelect").value;
+
+        var url = `/FAQ/FilterFAQsBasedOnCategory?category=${selectedCategory}`;
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector(".suggested-faqs").innerHTML = html;
+            })
+            .catch(error => console.error('Error loading the magazines:', error));
+    }
+
+</script>

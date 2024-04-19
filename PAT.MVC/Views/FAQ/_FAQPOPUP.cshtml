@@ -1,0 +1,10 @@
+﻿@using PAT.AccessModel.Models.Info
+@model List<FAQModel>
+@foreach(var item in Model)
+{
+    <p class="faq">
+        <a href="/FAQ/Index">
+            @item.Header
+        </a>
+    </p>
+}

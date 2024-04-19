@@ -1,0 +1,50 @@
+﻿@model InquiryCertVM
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/item-details.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="banner">
+        <div class="banner_header-container">
+            <h1 class="banner__header">الشهادات</h1>
+            <p class="banner__crumbs">الرئيسية>> الشهادات</p>
+        </div>
+    </div>
+</header>
+<section class="item-details">
+    <h2 class="item-header">تجديد شهاده</h2>
+
+
+
+      
+        <a  asp-action="newCert" class="btn btn-dark">تجديد</a>
+
+    
+    <br />
+    <br />
+    <h3 class="item-subheader">الاجراءات</h3>
+    <ul class="content">
+        @foreach (var item in Model.CertificateProceduresList)
+        {
+            <h3 class="item-subheader">
+                @item.Name
+            </h3>
+            foreach (var procedure in item.CertificateProcedure)
+            {
+                <li style="margin-right:2rem">
+                    @procedure.Description
+                </li>
+            }
+        }
+
+    </ul>
+
+</section>

@@ -1,0 +1,419 @@
+﻿@using PAT.AccessModel.Models.Info
+@model HomeResponse
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    var firstImaheName = Model.Carousal.Images.Select(I => I.ImageName).FirstOrDefault();
+    int durationInInt = (int)Model.Carousal.Duration.TotalMilliseconds;
+}
+
+<head>
+ 
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+
+<section class="news ">
+    <div class="news-banner">
+        <img src="http://101.44.222.243:3000/Images/Carousal/@firstImaheName" alt="" class="news-banner__img" />
+        <div class="news-banner__details">
+            <h2>
+                  @Model.Carousal.CarousalText
+            </h2>
+            <p>
+              @Model.Carousal.Paragraph
+            </p>
+            <a  href="@Model.Carousal.buttonLink"><i data-feather="arrow-right"></i>@Model.Carousal.buttonText</a>
+        </div>
+    </div>
+
+    <div class="news-cards-container">
+
+
+        <button class="news-prev-btn prev-btn">&lt;</button>
+        <div class="news-cards">
+        @foreach(var image in Model.Carousal.Images)
+        {
+            <div class="news-card col-sm-12 col-md-3">
+                    <img src="http://101.44.222.243:3000/Images/Carousal/@image.ImageName" alt="" class="news-banner__img" />
+                <div class="news-card__filter"></div>
+
+            </div>
+        }
+        </div>
+        <button class="news-next-btn next-btn">&gt;</button>
+    </div>
+    <a href="" class="news-link button-17">الذهاب لصفحة الاخبار</a>
+</section>
+    <!-- Important Links -->
+<section class="imp-links">
+    <div class="links-header">
+        <h2>روابط مهمة</h2>
+        <p>الحجز الالكترونى لاختبارات المعلمين</p>
+    </div>
+
+    <div class="media-scroller snaps-inline training-cards">
+         <button class="prev-btn">&lt;</button> 
+        <div class="media-element">
+            <img src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                 alt="" />
+            <p class="title">ا1111111111111لحجز الالكترونى لاختبارات المعلمين</p>
+        </div>
+        <div class="media-element">
+            <img src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                 alt="" />
+            <p class="title">الحجز الالكترونى لاختبار22222222222ات المعلمين</p>
+        </div>
+        <div class="media-element">
+            <img src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                 alt="" />
+            <p class="title">الحجز الالكترونى لاختبارات المعلمين</p>
+        </div>
+        <div class="media-element">
+            <img src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                 alt="" />
+            <p class="title">الحجز الالكترونى لاختبارات المعلمين</p>
+        </div>
+        <div class="media-element">
+            <img src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                 alt="" />
+            <p class="title">الحجز الالكترونى لاختبارات المعلمين</p>
+        </div>
+         <button class="next-btn">&gt;</button> 
+    </div>
+</section>
+    <!-- Trainings -->
+<!-- Trainings -->
+
+<section class="training">
+    <div class="training-header">
+        <h2>البرامج الرقمية </h2>
+        <p>البرامج الرقمية المقدمة من الوزارة لتطوير مهارات المعلمين </p>
+    </div>
+    <div class="media-scroller snaps-inline training-cards">
+
+
+         <button class="prev-btn">&lt;</button> 
+
+
+        <div class="news-cards-container gap-3 justify-content-start">
+            <div class="media-element col-12 col-md-3">
+                <img src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400" alt="" />
+                <h4 class="title">استراتيجيات التفكير الناقد واتخاذ القرارات</h4>
+                <div class="card-text">
+                    <img src="~/assets/LMS/price.svg" alt="price">
+                    <small class="text-gray">200EGP</small>
+                </div>
+                <div class="card-text">
+                    <img src="~/assets/LMS/chart.svg" alt="price">
+                    <small class="text-gray">القيادات وتغير المسمى الوظيفى</small>
+                </div>
+                <div class="card-text">
+                    <img src="~/assets/LMS/shapes.svg" alt="price">
+                    <small class="text-gray">دورات مسجلة تفاعلية</small>
+                </div>
+                <button class="training-register button-17">التسجيل</button>
+            </div>
+            <div class="media-element col-12 col-md-3">
+                <img src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400" alt="" />
+                <h4 class="title">استراتيجيات التفكير الناقد واتخاذ القرارات</h4>
+                <div class="card-text">
+                    <img src="~/assets/LMS/price.svg" alt="price">
+                    <small class="text-gray">200EGP</small>
+                </div>
+                <div class="card-text">
+                    <img src="~/assets/LMS/chart.svg" alt="price">
+                    <small class="text-gray">القيادات وتغير المسمى الوظيفى</small>
+                </div>
+                <div class="card-text">
+                    <img src="~/assets/LMS/shapes.svg" alt="price">
+                    <small class="text-gray">دورات مسجلة تفاعلية</small>
+                </div>
+                <button class="training-register button-17">التسجيل</button>
+            </div>
+
+        </div>
+         <button class="next-btn">&gt;</button> 
+
+    </div>
+    <a href="" class="news-link button-17">عرض الكل</a>
+@*     <div class="training-stats">
+        @foreach (var item in Model.StatItems)
+        {
+            <div style="background-color:@item.BackgroundColor" class="training-numbox trainings-counter">
+                <h3 >@item.Value</h3> <!-- Initial value set dynamically -->
+                <p>@item.Title</p>
+            </div>
+        }
+    </div> *@
+    <div class="training-stats">
+        @foreach (var item in Model.StatItems)
+        {
+            <div style="background-color:@item.BackgroundColor" class="training-numbox">
+                <!-- Use data-end-value to store the dynamic end value -->
+                <h3 class="counter" data-end-value="@item.Value">0</h3>
+                <p>@item.Title</p>
+            </div>
+        }
+    </div>
+
+</section>
+    <!-- Teachers News -->
+    <!-- Partners -->
+<!-- Partners -->
+<section class="partners-section mt-5">
+    <h2 class="partners-header">شركاء النجاح</h2>
+    <div class="success-partners logos" style="--time: 25s">
+        <div class="partners-logos logos-slide">
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+        </div>
+        <div class="partners-logos logos-slide">
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+            <img src="~/assets/eyouth.webp" alt="" />
+        </div>
+    </div>
+</section>
+    <!-- Training Centers-->
+<section class="training-centers d-flex flex-column align-items-center">
+    <h2 class="centers-header">المراكز المعتمدة</h2>
+    <div class="centers d-flex p-4 justify-content-evenly"></div>
+    <a href="/AccreditedCenters/Index" class="news-link mb-2 button-17">الذهاب لصفحة المراكز</a>
+</section>
+
+    <!-- SCRIPTS -->
+
+     <script src="~/js/app.js" type="module"></script> 
+    @section Scripts {
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to start the counting animation for a counter element
+            const startCounting = (element, endValue) => {
+                let current = 0;
+                const step = endValue / 200; // Determines the speed and smoothness of the animation
+
+                const counter = setInterval(() => {
+                    current += step;
+                    if (current >= endValue) {
+                        current = endValue; // Ensure we don't go over the target value
+                        clearInterval(counter); // Stop the interval when target is reached
+                    }
+                    element.textContent = Math.floor(current).toLocaleString(); // Update the text content
+                }, 10); // Interval speed in milliseconds
+            };
+
+            // Intersection Observer to trigger the counting when the element is in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const endValue = parseInt(target.getAttribute('data-end-value'), 10); // Use a data attribute to hold the end value
+                        startCounting(target, endValue);
+                        observer.unobserve(target); // Stop observing after animation starts
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the element is in view
+
+            // Select all counter elements and set up the observer for each
+            document.querySelectorAll('.counter').forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+    </script>
+
+    <script >
+
+        const newsBannerImage = document.querySelector(".news-banner__img");
+        const newsBannerDetails = document.querySelector(".news-banner__details");
+        const prevBtn = document.querySelector(".news-prev-btn");
+        const nextBtn = document.querySelector(".news-next-btn");
+        const newsCardsContainer = document.querySelector(".news-cards");
+        const newsCards = document.querySelectorAll(".news-card");
+
+        const cardWidth = newsCards[0].offsetWidth;
+        const containerWidth = newsCardsContainer.offsetWidth;
+        const numVisibleCards = Math.floor(containerWidth / cardWidth);
+
+        let currentIndex = 0;
+
+        // Function to show current card and hide others
+        function showCurrentCards(index) {
+            newsCards.forEach((card, i) => {
+                if (i >= index && i < index + numVisibleCards) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // Show initial set of cards
+        showCurrentCards(currentIndex);
+
+        // Event listener for previous button
+        prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showCurrentCards(currentIndex);
+            }
+        });
+
+        // Event listener for next button
+        nextBtn.addEventListener("click", () => {
+            if (currentIndex + numVisibleCards < newsCards.length) {
+                currentIndex++;
+                showCurrentCards(currentIndex);
+            }
+        });
+
+
+        function rotateNews(event) {
+            newsBannerImage.src = event.target.parentElement.children[0].src;
+            event.target.parentElement.children[1].classList.add("active");
+            console.log(event.target.parentElement.children[1]);
+        }
+
+        function autoRotateNews() {
+            newsCards.forEach((card) => {
+                card.children[1].classList.remove("active");
+            });
+            if (counter >= newsCards.length) counter = 0;
+            else counter++;
+            newsCards[counter].children[1].classList.add("active");
+            newsBannerImage.src = newsCards[counter].children[0].src;
+        }
+        setInterval(autoRotateNews, @durationInInt);
+
+        let counter = 0;
+
+
+
+
+        // Imp Links Carousel Functionality
+        const impLinksContainer = document.querySelector(".imp-links .media-scroller");
+        const impLinks = document.querySelectorAll(".imp-links .media-element");
+
+        let impLinksIndex = 0;
+        const numVisibleImpLinks = 4;
+
+        function showCurrentImpLinks(index) {
+            impLinks.forEach((link, i) => {
+                if (i >= index && i < index + numVisibleImpLinks) {
+                    link.style.display = "flex";
+                } else {
+                    link.style.display = "none";
+                }
+            });
+        }
+
+        showCurrentImpLinks(impLinksIndex);
+
+        document.querySelector(".imp-links .prev-btn").addEventListener("click", () => {
+            if (impLinksIndex > 0) {
+                impLinksIndex--;
+                showCurrentImpLinks(impLinksIndex);
+            }
+        });
+
+        document.querySelector(".imp-links .next-btn").addEventListener("click", () => {
+            if (impLinksIndex + numVisibleImpLinks < impLinks.length) {
+                impLinksIndex++;
+                showCurrentImpLinks(impLinksIndex);
+            }
+        });
+
+        // Trainings Carousel Functionality
+        const trainingContainer = document.querySelector(".training .media-scroller");
+        const trainings = document.querySelectorAll(".training .media-element");
+
+        let trainingIndex = 0;
+        const numVisibleTrainings = 4;
+
+        function showCurrentTrainings(index) {
+            trainings.forEach((training, i) => {
+                if (i >= index && i < index + numVisibleTrainings) {
+                    training.style.display = "flex";
+                } else {
+                    training.style.display = "none";
+                }
+            });
+        }
+
+        showCurrentTrainings(trainingIndex);
+
+        document.querySelector(".training .prev-btn").addEventListener("click", () => {
+            if (trainingIndex > 0) {
+                trainingIndex--;
+                showCurrentTrainings(trainingIndex);
+            }
+        });
+
+        document.querySelector(".training .next-btn").addEventListener("click", () => {
+            if (trainingIndex + numVisibleTrainings < trainings.length) {
+                trainingIndex++;
+                showCurrentTrainings(trainingIndex);
+            }
+        });
+
+
+        // Teachers News Carousel Functionality
+        const teachersNewsContainer = document.querySelector(".teachers-news .media-scroller");
+        const teachersNews = document.querySelectorAll(".teachers-news .media-element");
+
+        let teachersNewsIndex = 0;
+        const numVisibleTeachersNews = 4;
+
+        function showCurrentTeachersNews(index) {
+            teachersNews.forEach((news, i) => {
+                if (i >= index && i < index + numVisibleTeachersNews) {
+                    news.style.display = "flex";
+                } else {
+                    news.style.display = "none";
+                }
+            });
+        }
+
+        showCurrentTeachersNews(teachersNewsIndex);
+
+        document.querySelector(".teachers-news .prev-btn").addEventListener("click", () => {
+            if (teachersNewsIndex > 0) {
+                teachersNewsIndex--;
+                showCurrentTeachersNews(teachersNewsIndex);
+            }
+        });
+
+        document.querySelector(".teachers-news .next-btn").addEventListener("click", () => {
+            if (teachersNewsIndex + numVisibleTeachersNews < teachersNews.length) {
+                teachersNewsIndex++;
+                showCurrentTeachersNews(teachersNewsIndex);
+            }
+        });
+
+
+
+     
+
+    </script> 
+    }

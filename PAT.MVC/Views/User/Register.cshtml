@@ -1,0 +1,145 @@
+﻿@using PAT.Provider.Info.Dtos;
+@model CreateUserDto
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="../css/registration.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header class="registration-header">
+        <h2 class="registration-header-title">استمارة التسجيل</h2>
+        <div class="registration-header-subtitle">الصفحة الرئيسية >> استمارة التسجيل </div>
+    </header>
+    <div class="container">
+        <h2 class="registration-title">مرحبا بك فى الاكاديمية المهنية للمعلمين</h2>
+        <div class="registration-content">
+            <form action="Register" method="post" class="registration-form" id="registrationForm" onsubmit="return validateForm()">
+                <div class=" name-inputs-group">
+                    <div class="registration-form">
+
+                        <label for="firstName" class="registration-label">الاسم الأول</label>
+                        <input asp-for="UserDetails.firstName" type="text" id="firstName" name="UserDetails.firstName" class="registration-input" required
+                               style="width: 80%;">
+                        <span id="firstNameError" class="error-message"></span>
+                    </div>
+
+                    <div class="registration-form">
+                        <label for="middleName" class="registration-label">اسم الأب</label>
+                        <input asp-for="UserDetails.familyName" type="text" id="middleName" name="UserDetails.familyName" class="registration-input" required
+                               style="width: 80%;">
+                        <span id="middleNameError" class="error-message"></span>
+
+                    </div>
+                    <div class="registration-form">
+                        <label for="lastName" class="registration-label">اسم الجد</label>
+                        <input asp-for="UserDetails.lastName" type="text" id="lastName" name="UserDetails.lastName" class="registration-input" required
+                               style="width: 80%;">
+                        <span id="lastNameError" class="error-message"></span>
+
+                    </div>
+                </div>
+
+                <div class="registration-form-group">
+                    <label asp-for="UserDetails.governmentId" class="registration-label">المحافظة</label>
+                    <select asp-for="UserDetails.governmentId" asp-items="Model.CreteUserVM.Governments" id="governorate" class="registration-input" required>
+                        <option selected disabled hidden>اختر المحافظة</option>
+
+                    </select>
+                    <span id="governorateError" class="error-message"></span>
+                </div>
+                <div class="registration-form-group">
+                    <label asp-for="UserDetails.positionId" class="registration-label">
+                        الوظيفة على الكادر
+                    </label>
+                    <select asp-for="UserDetails.positionId" asp-items="Model.CreteUserVM.Positions" class="registration-input" required>
+                        <option selected disabled hidden>اختر البيان</option>
+
+                    </select>
+                    <span id="JobError" class="error-message"></span>
+                </div>
+                <div class="registration-form-group">
+                    <label asp-for="UserDetails.educitionalAdministrationId" class="registration-label">
+                        مكان العمل
+                    </label>
+                    <select asp-for="UserDetails.educitionalAdministrationId" asp-items="Model.CreteUserVM.EducitionalAdministration" class="registration-input" required>
+                        <option selected disabled hidden>اختر البيان</option>
+
+                    </select>
+                    <span id="locationError" class="error-message"></span>
+                </div>
+                <div class="registration-form-group">
+                    <label for="userCode" class="registration-label">كود المعلم</label>
+                    <input asp-for="UserDetails.teacherCode" type="number" id="userCode" name="UserDetails.teacherCode" class="registration-input red-border" required>
+                    <span id="codeError" class="error-message"></span>
+                </div>
+                <div class="registration-form-group">
+                    <label for="phone" class="registration-label">المحمول</label>
+                    <input asp-for="UserDetails.Mobile" type="phone" id="phone" name="UserDetails.Mobile" class="registration-input" required>
+                </div>
+                <div class="registration-form-group">
+                    <label for="nationalID" class="registration-label">الرقم القومى</label>
+                    <input asp-for="UserDetails.nationalId" type="number" id="nationalID" name="UserDetails.nationalId" class="registration-input" required>
+                    <span id="numberError" class="error-message"></span>
+                </div>
+                <div class="registration-form-group">
+                    <label for="email" class="registration-label">البريد الإلكترونى</label>
+                    <input asp-for="User.Email" type="email" id="email" name="User.Email" class="registration-input" required>
+                    <span id="emailError" class="error-message"></span>
+                </div>
+                <div class="registration-form-group">
+                    <label for="password" class="registration-label">كلمة المرور</label>
+                    <div class="password-input-container">
+                        <input asp-for="User.Password" type="password" id="password" name="User.Password" class="registration-input" required>
+                        <i id="eye-icon" class="fas fa-eye password-toggle-icon"
+                           onclick="togglePasswordVisibility('password', 'eye-icon')"></i>
+                    </div>
+                    <span id="passwordError" class="error-message"></span>
+                </div>
+                <div class="registration-form-group">
+                    <label for="password" class="registration-label">إعادة كتابة كلمة المرور</label>
+                    <div class="password-input-container">
+                        <input asp-for="User.Password" type="password" id="passwordConfirm" name="User.Password" class="registration-input"
+                               required>
+                        <i id="eye-icon-confirm" class="fas fa-eye password-toggle-icon"
+                           onclick="togglePasswordVisibility('passwordConfirm', 'eye-icon-confirm')"></i>
+                    </div>
+                    <span id="passwordConfirmError" class="error-message"></span>
+                </div>
+                
+                <div>
+                    <input type="checkbox" id="confirmData" name="confirmData" required>
+                    <label for="agreeTerms">
+                        اقر بصحة بيانات الرقم القومى والاسم
+                    </label>
+                    <span id="checkError" class="error-message"></span>
+                </div>
+                <button class="registration-btn" type="submit" id="registerButton">تسجيل</button>
+                <div class="login-link-text">هل لديك حساب ؟ <a href="#">تسجيل دخول</a></div>
+                <div class="helpBox">
+                    <h6 class="registrationHelpTitle">
+                        معلومات سوف تساعدك فى انشاء حساب بطريقة صحيحة
+                    </h6>
+                    <ul>
+                        <li>تأكد من صحة الرقم القومى الخاص بك</li>
+                        <li>تأكد من صحة الرقم القومى الخاص بك</li>
+                        <li>تأكد من صحة الرقم القومى الخاص بك</li>
+                        <li>تأكد من صحة الرقم القومى الخاص بك</li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../wwwroot/js/registration.js"></script>
+</body>
+
+</html>

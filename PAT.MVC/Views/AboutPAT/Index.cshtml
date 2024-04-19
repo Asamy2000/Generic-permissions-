@@ -1,0 +1,173 @@
+﻿@using PAT.Provider.Info.Dtos
+@model AboutUsDto
+
+
+@{
+    ViewData["Title"] = "About BAT";
+}
+
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/css/aboutPAT.css" rel="stylesheet" />
+ 
+</head>
+
+    <header class="aboutBAT-header">
+        <div class="header-container">
+            <h5 class="header-container-title">
+                الأكاديمية المهنية للمُعلمين
+            </h5>
+            <p class="header-container-paragraph">
+                أنشئت الأكاديمية المهنية للمعلمين بالقرار الجمهوري رقم ١٢٩ لسنة ٢٠٠٨، وذلك بعد صدور القانون رقم 155 لسنة
+                2007 والخاص بتعديل بعض أحكام قانون التعليم، والذي نص علي : إنشاء هيئة عامة تسمي الأكاديمية المهنية
+                للمعلمين، تكون لها الشخصية الاعتبارية العامة، وتتبع وزير التعليم ويكون مقرها الرئيسي مدينة القاهرة، ولها
+                إنشاء فروع في جميع أنحاء جمهورية مصر العربية.
+            </p>
+        </div>
+
+    </header>
+
+    <!-- content -->
+    <div class=" about-PAT-content d-flex">
+        <div class="col-sm-12 col-md-6">
+            <div class="text-container">
+                <h5 class="about-text-title">الرؤية :</h5>
+                <p class="about-text-paragraph">
+                    @if(Model.About.Vision != null)
+                    {
+                        @Model.About.Vision
+                    }
+                    
+                    
+                </p>
+            </div>
+
+            <div class="text-container">
+                <h5 class="about-text-title">الرسالة :</h5>
+                <p class="about-text-paragraph">
+                @if(Model.About.Mission != null)
+                {
+                    @Model.About.Mission
+                }
+               
+            </p>
+            </div>
+
+            <div class="text-container">
+                <h5 class="about-text-title">أهم المسؤليات :</h5>
+            @{
+
+                var responsibilities = Model.About.Responsibilities.Split('.');
+            }
+
+            @for (int i = 0; i < responsibilities.Length; i++)
+            {
+                <p class="about-text-paragraph">
+                    @responsibilities[i] 
+                </p>
+            }
+
+
+@*                 <p class="about-text-paragraph">
+                @responsibilities[1] ?? ""
+
+            </p>
+                <p class="about-text-paragraph">
+                @responsibilities[2] ?? ""
+
+                </p>
+                <p class="about-text-paragraph">
+                   @responsibilities[3] ?? ""
+                </p> *@
+            </div>
+
+
+            <div class="text-container">
+                <h5 class="about-text-title">الأهداف الاستراتيجية للأكاديمية :</h5>
+
+            @foreach (var goal in Model.AcademyGoals)
+            {
+
+                var goalDesc = goal.GoalDescription.Split("."); 
+                
+                <div>
+                    <div class="about-text-subtitle">
+                        @goal.GoalHeader
+
+                        </div>
+                    <ul>
+                        <li class="text-list-item">
+                            &nbsp
+                            <p class="about-text-paragraph">
+                                @goalDesc[0] ?? ""
+
+                            </p>
+                        </li>
+                        <li class="text-list-item">
+                            &nbsp
+                            <p class="about-text-paragraph">
+                            @goalDesc[1] ?? ""
+                            </p>
+
+                        </li>
+                        <li class="text-list-item">
+                            &nbsp
+                            <p class="about-text-paragraph">
+                                @goalDesc[2] ?? ""
+
+                            </p>
+
+                        </li>
+                    </ul>
+                </div>
+
+
+            }
+
+ @*            <div>
+                <div class="about-text-subtitle">1 » مجال التنمية المهنية :</div>
+                <ul>
+                <li class="text-list-item">&nbsp
+                    <p class="about-text-paragraph">
+                        وضع الخطط والسياسات والآليات ومعايير الجودة الخاصة بالبرامج التدريبية .
+                    </p>
+               </li>
+                <li class="text-list-item"> &nbsp
+                    <p class="about-text-paragraph">
+                    إعداد البرامج التدريبية اللآزمة لتحقيق التنمية المهنية لأعضاء هيئة التعليم .
+                </p>
+             
+                </li>
+                <li class="text-list-item">&nbsp
+                    <p class="about-text-paragraph">
+                        اقتراح سياسات ونظم تقويم الأداء المهني لأعضاء هيئة التعليم وتطويرها .
+                    </p>
+        
+                </li>
+            </ul>
+            </div> *@
+
+
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-6 mt-5 ">
+            <div class="rules">
+                <h6 class="rules-header">القوانين المنظمة للأكاديمية المهنية للمعلمين</h6>
+                <ul>
+                    <li class="rules-link"><a href="https://web.archive.org/web/20200228043351/https://drive.google.com/file/d/0BzjIUSc4l5puQWRQT3g2ODF1N0U/view">
+                        قانون 155 لسنة 2007 – ينظم كادر معلمى التربية والتعليم</a></li>
+                    <li class="rules-link"><a href="https://www.figma.com/exit?url=https%3A%2F%2Fweb.archive.org%2Fweb%2F20200228043351%2Fhttp%3A%2F%2Fwww.azhar.eg%2Feducation%2Fkader">
+                            قانون 156 لسنة 2007 – ينظم كادر معلمى الأزهر الشريف
+                        </a></li>
+                    <li class="rules-link"><a href="https://web.archive.org/web/20200228043351/https://drive.google.com/file/d/0BzjIUSc4l5pubjBubHFhY2RXdTg/view">
+                            القرار الجمهورى 129 لسنة 2008 – لتنظيم الأكاديمية المهنية للمعلمين وتحديد اختصاصتها
+                        </a></li>
+                </ul>
+                <div class="red-rectangle"></div> 
+            </div>
+            
+        </div>
+    </div>
+

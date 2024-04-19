@@ -1,0 +1,107 @@
+﻿@using PAT.AccessModel.Models.Info
+@model IReadOnlyList<AccreditedCenter>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous" />
+
+  <link href="~/css/accredited-centers.css" rel="stylesheet" />
+  <script src="https://unpkg.com/feather-icons"></script>
+
+</head>
+
+  <!-- HEADER -->
+  <header class="header" style="width:100%">
+    <div class="banner">
+      <div class="banner_header-container">
+        <h1 class="banner__header">المراكز المعتمدة</h1>
+        <p class="banner__crumbs">الرئيسية>>المراكز المعتمدة</p>
+      </div>
+    </div>
+  </header>
+  <main class="main centers-list">
+    @foreach(var center in Model)
+    {
+        <div class="center-card my-5">
+            <div class="center-card_img">
+                <img src="http://101.44.222.243:3000/Images/AccreditedCentersImages/@center.LogoPath" alt="" />
+            </div>
+            <div class="center-card_details">
+                <h4 class="center-card_details_header">@center.Name</h4>
+                <div class="contact-info__field">
+                    <h6 class="contact-info__field-header">
+                        <i data-feather="phone"></i>خدمة المواطنين ( الإستفسارات والشكاوى
+                    </h6>
+                    <p class="contact-info__field-data"> الرقم الموحد : @center.PhoneNumber</p>
+                </div>
+                <div class="contact-info__field">
+                    <h6 class="contact-info__field-header">
+                        <i data-feather="mail"></i>البريد الالكترونى الرسمى :
+                    </h6>
+                    <p class="contact-info__field-data"> @center.Email</p>
+                </div>
+                <div class="contact-info__field">
+                    <h6 class="contact-info__field-header">
+                        <i data-feather="map-pin"></i>عنوان الأكاديمية ( المقر الرئيسي ) :
+                    </h6>
+                    <p class="contact-info__field-data">
+                        @center.Address
+                    </p>
+                </div>
+            </div>
+            <form asp-action="Details" asp-route-id="@center.Id">
+                <button type="submit" class="center-card_btn">عرض تفاصيل اكثر</button>
+            </form>
+        </div>
+
+    }
+
+
+@*     <div class="center-card my-5">
+      <div class="center-card_img">
+        <img src="~/assets/eyouth.webp" alt="" />
+      </div>
+      <div class="center-card_details">
+        <h4 class="center-card_details_header">منصة إيوث التعليمية</h4>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="phone"></i>خدمة المواطنين ( الإستفسارات والشكاوى
+          </h6>
+          <p class="contact-info__field-data"> الرقم الموحد : 090071666</p>
+        </div>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="mail"></i>البريد الالكترونى الرسمى :
+          </h6>
+          <p class="contact-info__field-data"> info@pat.edu.eg</p>
+        </div>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="map-pin"></i>عنوان الأكاديمية ( المقر الرئيسي ) :
+          </h6>
+          <p class="contact-info__field-data">
+            مدينة السادس من أكتوبر – المدينة التعليمية ” الأكاديمية المهنية
+            للمعلمين ”
+          </p>
+        </div>
+      </div>
+        <form asp-action="Index" asp-controller="CenterPage">
+            <button type="submit" class="center-card_btn">عرض تفاصيل اكثر</button>
+        </form>
+    </div> *@
+  </main>
+@section Scripts{
+    <!-- SCRIPTS -->
+@*     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script> *@
+}
+

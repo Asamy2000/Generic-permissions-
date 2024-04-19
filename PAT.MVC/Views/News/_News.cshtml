@@ -1,0 +1,13 @@
+﻿@using PAT.AccessModel.Models.Info
+@model List<AcademyNews>
+@foreach (var news in Model)
+{
+    <div class="card col-md-3">
+        <img src="http://101.44.222.243:3000/Images/NewsImages/@news.Image" alt="new" class="card-img">
+        <h6 class="card-text">@news.Title</h6>
+        <div class="date-container">
+            <small class="text-muted">@news.CreateTime.ToString()</small>
+            <a asp-route-Id="@news.Id" asp-action="Details" class='read-more'>تابع القراءة</a>
+        </div>
+    </div>
+}

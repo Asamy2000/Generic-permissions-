@@ -1,0 +1,108 @@
+﻿@using PAT.Provider.Info.Dtos;
+@model LoginDto
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <header class="login-header">
+        <h2 class="login-header-title">تسجيل الدخول</h2>
+        <div class="login-header-subtitle">الصفحة الرئيسية >> تسجيل الدخول </div>
+    </header>
+    <div class="container">
+        <h2 class="login-title">مرحبا بك فى الاكاديمية المهنية للمعلمين</h2>
+        <div class="login-content">
+            <form action="Login" method="post" class="col-md-5 col-12 login-form" id="loginForm">
+                <div class="form-group">
+                    <label class="login-label">الرقم القومي</label>
+                    <input asp-for="Email"  id="Email" class="login-input" required>
+                    <span asp-validation-for="Email" id="userNumberError" class="error-message"></span>
+                </div>
+                <div class="form-group">
+
+                    <label for="password" class="login-label">كلمة المرور</label>
+                    <div class="password-input-container">
+                        <input asp-for="Password" type="password" id="password"  class="login-input" required>
+                        <i class="fas fa-eye password-toggle-icon" onclick="togglePasswordVisibility()"></i>
+                    </div>
+                    <span asp-validation-for="Password" id="passwordError" class="error-message"></span>
+                </div>
+                <button class="login-btn" type="submit">تسجيل الدخول</button>
+            </form>
+            <div class="col-md-5 col-12 attention-box">
+                <h4 class="attention-title">
+                    تنويه هام
+                </h4>
+                <div>فى حالة فقدان كلمة المرور الخاصة بك يتم تقديم طلب بتغير كلمة المرور </div>
+                <button class="password-pop-up" onclick="openPopup()">
+                    تقديم طلب بتغير كلمة المرور
+                </button>
+                <div>
+                    بعد الاطلاع علي طلبكم المقدم، سوف يتم تغيير كلمة المرور، والتواصل معكم من خلال رقم الهاتف / الواتساب
+                    المسجل علي رقم الهاتف
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Reset Modal -->
+    <div class="popupContainer" id="popupContainer">
+        <div class=" popup-content">
+            <div class="popup-header text-center">
+                <h5 class="login-title">تقديم طلب بتغير كلمة المرور</h5>
+                <button class="close-button" onclick="closePopup()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="popup-body">
+                <form class="passwordResetForm">
+                    <div class="form-group">
+                        <label for="resetUsername" class="login-label">الاسم</label>
+                        <input type="text" class="login-input" id="resetUsername" required>
+                        <span id="userNumberError" class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="resetNationalID" class="login-label">الرقم القومي</label>
+                        <input type="number" class="login-input" id="resetNationalID" required>
+                        <span id="userNumberError" class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="resetMobileNumber" class="login-label">المحمول</label>
+                        <input type="number" class="login-input" id="resetMobileNumber" required>
+                        <span id="userNumberError" class="error-message"></span>
+                    </div>
+                    <button type="submit" class="reset-btn" id="resetButton" onclick="submitResetForm()">إرسال الطلب</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- success popup Modal -->
+    <div id="successPopup" class="popupContainer">
+        <div class="popup-content">
+            <button class="close-button" onclick="closeSuccessPopup()">×</button>
+            <div class="popup-body success-body">
+                <div class="success-icon"><i class="fas fa-check-circle fa-5x"></i></div>
+                <h4 class="success-message">تم إرسال الطلب بنجاح!</h4>
+            </div>
+        </div>
+    </div>
+
+
+    @*<script src="../scripts/login.js"></script>*@
+
+
+</body>
+
+</html>

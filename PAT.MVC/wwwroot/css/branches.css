@@ -1,0 +1,170 @@
+:root {
+  --primary-red: #ce1126;
+  --primary-blue: #051d40;
+  --primary-darkgrey: #333333;
+  --primary-lightgrey: #bcbcbb;
+  --primary-black: #000000;
+  --secondary-darkyellow: #9d7c33;
+  --secondary-lightyellow: #bb9417;
+  --secondary-green: #027a3d;
+  --secondary-teal: #264955;
+  --secondary-midgrey: #adbcc0;
+
+  --divider: #ebebeb;
+}
+
+@font-face {
+  font-family: "JF Flat";
+  src: url("../fonts/JF-Flat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "JF Flat Bold";
+  src: url("../fonts/JF\ Flat\ Bold.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "JF Flat";
+  list-style: none;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "JF Flat Bold";
+}
+
+a,
+a:visited,
+a:focus {
+  text-decoration: none;
+  color: var(--secondary-midgrey);
+}
+
+section,
+footer,
+main,
+nav {
+  padding: 4rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 161px;
+  object-fit: cover;
+  object-position: 100% 70%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/contactus-header.jpeg");
+  background-position: center;
+}
+
+.banner_header-container {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+}
+
+.banner__header {
+  color: var(--secondary-lightyellow);
+}
+
+.banner__crumbs {
+  color: white;
+}
+
+.main h2 {
+  color: var(--primary-red);
+}
+
+.main h5,
+.main h6 {
+  color: var(--primary-blue);
+}
+
+#governorates {
+  width: 20%;
+  background-color: var(--divider);
+  border: 0;
+  padding: 1rem;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.results>div {
+  background-color: var(--divider);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2rem;
+  height: 15rem;
+}
+
+.results__manager {
+  width: 30%;
+}
+
+.results__stats {
+  width: 40%;
+}
+
+.results__contact {
+  width: 85%;
+  height: 100%;
+}
+
+.results__data {
+  text-align: center;
+  padding-top: 1.5rem;
+  height: 100%;
+}
+
+.result__header {
+  background-color: var(--primary-red);
+  color: white;
+  height: 4rem;
+  border-radius: 15px;
+  width: 100%;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.results__contact>.results__data {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  text-align: right;
+}
+
+.stat-num {
+  font-size: 1.5rem;
+  font-family: "JF Flat Bold";
+}
+
+.feather {
+  color: var(--divider);
+  fill: var(--primary-red);
+}
+
+.col1>div,
+.col2>div {
+  padding-bottom: 2.5rem;
+}

@@ -1,0 +1,161 @@
+﻿@using PAT.AccessModel.Models.Info
+@using PAT.Provider.Info.Dtos
+@model NewsToReturnDto
+@{
+    
+
+    var  featuredNews = Model.NewsList.FirstOrDefault();
+   
+    var latestNews = Model.NewsList.Skip(1);
+}
+<head>
+    <title>all-news</title>
+
+    <link href="~/css/all-news.css" rel="stylesheet" />
+    <style>
+
+        .select-styled {
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: relative;
+            background: url('caret-icon.png') no-repeat right;
+            background-size: 12px;
+            
+        }
+
+           
+            .select-styled::-webkit-appearance: none;
+            
+            .select-styled::-moz-appearance: none;
+            
+            .select-styled:active, .select-styled:focus {
+                outline: none;
+                border-color: #aaa;
+            }
+
+    </style>
+</head>
+
+@if (Model.NewsList != null && Model.NewsList.Any())
+{
+    <header class="all-news-header row m-0">
+        <div class="col-md-6 news-header-text">
+            <h3 class="news-header-title">@featuredNews?.Title</h3>
+            <p class="news-header-paragraph">@featuredNews?.Content </p>
+            @* <p class="news-header-paragraph">قام الدكتور رضا حجازى وزير التربية والتعليم والتعليم الفنى، صباح اليوم، بتفقد سير امتحانات الفصل الدراسي الأول للعام الدراسى ٢٠٢٣/٢٠٢٤ للصف الأول الثانوى</p> *@
+            <div class="date-container">
+                <div class="date">
+                    @featuredNews?.CreateTime.Day @featuredNews?.CreateTime.Month.ToString() , @featuredNews?.CreateTime.Year
+                </div>
+                <a href="#" class="read-btn">تابع القراءة 	&#8592</a>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="blur-bg">
+                <h4>احدث الاخبار هذا الاسبوع</h4>
+                @foreach (var news in latestNews)
+                {
+                    <div class="latest-new-card ">
+                        <div class=" red-layer latest-img-container">
+                            <img src="http://101.44.222.243:3000/Images/NewsImages/@news.Image" alt="news" class="latest-new-img ">
+                        </div>
+                        <div class="latest-news-text">
+                            <div class="publish-time">تم النشر  <span>@news.CreateTime</span></div>
+                            <p class="new-data">
+                                @news.Title
+                            </p>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+
+    </header>
+
+
+    <div class="all-news-container">
+        <h5 class="head-text">ارشيف الاخبار</h5>
+        <div class='dropdown dropdown-news'>
+            <select id="monthSelect" class="form-select select-styled" onchange="filterNewsByMonth()">
+                <option disabled selected value="">إختر شهر</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        <div class='dropdown dropdown-news'>
+            <select id="categorySelect" class="form-select select-styled" onchange="filterNewsByCategory()">
+                <option disabled selected value="">إختر القسم</option>
+                @foreach (var item in Model.CategoryList)
+                {
+                    <option value="@item.Value">@item.Text</option>
+                }
+            </select>
+        </div>
+        <div class="all-news-gallery row">
+            @foreach (var news in Model.NewsList)
+            {
+                <div class="card col-md-3">
+                    <img src="http://101.44.222.243:3000/Images/NewsImages/@news.Image" alt="new" class="card-img">
+                    <h6 class="card-text">@news.Title</h6>
+                    <div class="date-container">
+                        <small class="text-muted">@news.CreateTime.ToString()</small>
+                        <a asp-route-Id="@news.Id" asp-action="Details" class='read-more'>تابع القراءة</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="mt-3 pagination"></div>
+}
+else
+{
+    <h1 class="m-5">لا يوجد اخبار</h1>
+}
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/all-news.js"></script>
+
+
+<script>
+    function filterNewsByMonth() {
+        var selectedMonth = document.getElementById("monthSelect").value;
+        
+        var url = `/News/FilterNews?month=${selectedMonth}`;
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector(".all-news-gallery").innerHTML = html;
+            })
+            .catch(error => console.error('Error loading the magazines:', error));
+    }
+
+    function filterNewsByCategory() {
+        var selectedCategory = document.getElementById("categorySelect").value;
+
+        var url = `/News/FilterCategoryNews?category=${selectedCategory}`;
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector(".all-news-gallery").innerHTML = html;
+            })
+            .catch(error => console.error('Error loading the magazines:', error));
+    }
+</script>
+

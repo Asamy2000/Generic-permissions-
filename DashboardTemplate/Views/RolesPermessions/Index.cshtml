@@ -1,0 +1,78 @@
+﻿@using DashboardTemplate.Models.PermissionsVM
+@model AssignPermissionsToRoleVM
+@{
+    ViewData["Title"] = "Index";
+}
+@if (ViewBag.Success != null)
+{
+    <div id="successAlert" class="alert alert-success">
+        @ViewBag.Success
+    </div>
+}
+
+<div class="card card-default mt-5">
+    <div class="card-header">
+        <h3 class="card-title">الأدوار والصلاحيات</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <form asp-action="Index">
+
+        <div class="card-body" style="display: block;">
+            <div class="row">
+                <div class="col-12">
+
+
+                    @* Roles *@
+                    <div class=" mt-1">
+                        <label> الدور</label>
+
+                        <select asp-for="RoleId" asp-items="Model.Roles" class="form-control custom-select" style="height: 102px;">
+                            <option disabled value=""></option>
+
+                        </select>
+                    </div>
+
+                    @* Permissions *@
+                    <div class=" mt-2">
+                        <label> الصلاحيات</label>
+
+                        <select asp-for="PermissionsIds" asp-items="Model.Permissions" multiple="multiple" style="height: 102px;">
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card-footer" style="display: block;">
+            <input type="submit" value="حفظ" class="btn btn-primary mb-2">
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+
+            const successAlert = document.getElementById('successAlert');
+            if (successAlert) {
+
+                setTimeout(() => {
+
+                    successAlert.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+} 

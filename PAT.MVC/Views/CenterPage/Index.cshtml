@@ -1,0 +1,112 @@
+﻿
+@{
+      ViewData["Title"] = "Index";
+}
+
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous" />
+  <link rel="stylesheet" href="~/css/center-page.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="banner">
+      <div class="banner_header-container">
+        <h1 class="banner__header">منصة إيوث التعليمية</h1>
+        <p class="banner__crumbs">
+          الرئيسية>>المراكز المعتمدة>> منصة إيوث التعليمية
+        </p>
+      </div>
+      <button class="banner__help">
+        <img src="~/assets/help-icon.svg" alt="" srcset="" />المساعدة
+      </button>
+    </div>
+  </header>
+  <!-- MAIN -->
+  <main class="main">
+    <section class="center-card my-5">
+      <div class="center-card_img">
+        <img src="~/assets/eyouth.webp" alt="eYouth Center Logo" />
+      </div>
+      <div class="center-card_details">
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="phone"></i>خدمة المواطنين ( الإستفسارات والشكاوى
+          </h6>
+          <p class="contact-info__field-data"> الرقم الموحد : 090071666</p>
+        </div>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="mail"></i>البريد الالكترونى الرسمى :
+          </h6>
+          <p class="contact-info__field-data"> info@pat.edu.eg</p>
+        </div>
+        <div class="contact-info__field">
+          <h6 class="contact-info__field-header">
+            <i data-feather="map-pin"></i>عنوان الأكاديمية ( المقر الرئيسي ) :
+          </h6>
+          <p class="contact-info__field-data">
+            مدينة السادس من أكتوبر – المدينة التعليمية ” الأكاديمية المهنية
+            للمعلمين ”
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="center-description my-5">
+      <h3 class="center-description__header">نبذة عن المركز :</h3>
+      <p class="center-description__paragraph">
+        لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة
+        وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك
+        السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن
+        بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة
+        أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا
+        يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن
+        نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.
+      </p>
+    </section>
+    <section class="center-trainigs my-5">
+      <h3 class="center-trainings__header">
+        الدورات التدريبية المقدمة من خلاله :
+      </h3>
+      <div class="media-scroller snaps-inline training-cards">
+        <div class="media-element">
+          <img
+            src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+            alt="" />
+          <p class="title">استراتيجيات التفكير الناقد واتخاذ القرارات</p>
+          <button class="training-register">التسجيل</button>
+        </div>
+        <div class="media-element">
+          <img
+            src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+            alt="" />
+          <p class="title">استراتيجيات التفكير الناقد واتخاذ القرارات</p>
+          <button class="training-register">التسجيل</button>
+        </div>
+        <div class="media-element">
+          <img
+            src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+            alt="" />
+          <p class="title">استراتيجيات التفكير الناقد واتخاذ القرارات</p>
+          <button class="training-register">التسجيل</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  @section Scripts{
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+            integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
+            integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @*   <script>
+    feather.replace();
+  </script> *@
+  }
+

@@ -1,0 +1,44 @@
+﻿
+@{
+ViewData["Title"] = "Index";
+}
+
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/list.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="../../css/layout.css" />*@
+    <title>Document</title>
+  </head>
+
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="banner">
+        <div class="banner_header-container">
+          <h1 class="banner__header">الشهادات</h1>
+            <p class="banner__crumbs">الرئيسية>>الشهادات</p>
+        </div>
+      </div>
+    </header>
+    <section class="accreditation-list">
+
+        <div class="list-item">
+            <a class="btn  btn-sm" asp-action="Details" >
+                <i class="fas fa-pencil-alt">
+                </i>
+                إستعلام عن الشهادة
+            </a>
+        </div>
+
+
+    <div class="list-item">
+        <a class="btn  btn-sm" href="/UserCertificate/Index">
+            <i class="fas fa-pencil-alt">
+            </i>
+            شهاداتي
+        </a>
+    </div>
+    </section>
+

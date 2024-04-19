@@ -1,0 +1,41 @@
+﻿@using PAT.AccessModel.Models.Info
+@model List<FAQModel>
+
+@{
+
+    int faqIndex = 0;
+}
+@foreach (var faq in Model)
+{
+    <div class="commonQuestions-title mt-2">
+        الأسئلة الشائعة عن : @faq.Header
+    </div>
+    <div class="accordion" id="accordion-@faqIndex">
+        @for (int i = 0; i < faq.FaQQuestionAnswer.Count; i++)
+        {
+            var question = faq.FaQQuestionAnswer[i];
+
+            string collapseId = $"collapse-{faqIndex}-{i}";
+
+            <div class="card">
+                <div class="card-header" id="heading-@collapseId">
+                    <h6 class="mb-0">
+                        <button class="toggle-header" data-toggle="collapse" data-target="#@collapseId"
+                        aria-expanded="false" aria-controls="@collapseId">
+                            @question.Question
+                            <i class="fas fa-angle-down rotate"></i>
+                        </button>
+                    </h6>
+                </div>
+
+                <div id="@collapseId" class="collapse" aria-labelledby="heading-@collapseId" data-parent="#accordion-@faqIndex">
+                    <div class="card-body">
+                        @question.Answer
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    faqIndex++;
+}

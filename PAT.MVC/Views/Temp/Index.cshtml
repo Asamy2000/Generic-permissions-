@@ -1,0 +1,65 @@
+﻿@using PAT.AccessModel.Models.Info
+@model IReadOnlyList<TempModel> 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/css/commonQuestions.css" rel="stylesheet" />
+</head>
+
+<header class="commonQestions-header">
+    <h2 class="commonQestions-header-title">
+        @ViewBag.PageName 
+    </h2>
+    <div class="commonQestions-header-subtitle">
+        الرئيسية>>@ViewBag.PageName
+    </div>
+</header>
+
+<div class="container">
+    @for (int index = 0; index < Model.Count; index++) @* Use a for-loop for index access *@
+    {
+        var temp = Model[index];
+        string collapseId = $"collapse-{index}"; @* Unique ID for collapse elements *@
+        <div class="commonQuestions-title mt-2">
+            : @temp.Title
+        </div>
+        <div class="accordion" id="accordion-@index"> @* Make sure accordion ID is unique *@
+            <div class="card">
+                <div class="card-header" id="heading-@collapseId">
+                    <h6 class="mb-0">
+                        <button class="toggle-header" data-toggle="collapse" data-target="#@collapseId"
+                                aria-expanded="true" aria-controls="@collapseId">
+                            @temp.SubTitle
+                            <i class="fas fa-angle-down rotate"></i>
+                        </button>
+                    </h6>
+                </div>
+
+                <div id="@collapseId" class="collapse" aria-labelledby="heading-@collapseId" data-parent="#accordion-@index">
+                    <div class="card-body">
+                        @temp.Describtion @* Assuming the property name is Description; adjust if necessary *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    const buttons = document.querySelectorAll('.toggle-header');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const rotateElement = button.querySelector('.rotate');
+            if (rotateElement) {
+                rotateElement.classList.toggle('collapsed-btn');
+            }
+        });
+    });
+</script>

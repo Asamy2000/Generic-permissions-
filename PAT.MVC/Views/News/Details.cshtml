@@ -1,0 +1,71 @@
+﻿@using PAT.AccessModel.Models.Info
+@model NewsDetailViewModel
+
+<head>
+    <title>news-single</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/css/newsSingle.css" rel="stylesheet" />
+</head>
+
+    <header class="all-news-header row m-0">
+        <div class="col-md-6 news-header-text">
+            <h3 class="news-header-title">
+                @Model.CurrentNews.Title
+                </h3>
+            <p class="news-header-paragraph">
+            @Model.CurrentNews.Source
+            </p>
+
+            <div class="date-container">
+                <div class="date">
+                @Model.CurrentNews.CreateTime.Day @Model.CurrentNews.CreateTime.Month.ToString() , @Model.CurrentNews.CreateTime.Year
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-link"><i class="fas fa-print social-icon"></i></a>
+                <a href="#" class="social-link"><img src="~/assets/social-media/whatsapp-circle.svg"
+                        alt="whatsapp"></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter social-icon"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook social-icon"></i></a>
+
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="news-single-container">
+        <p class="news-details">
+        @Model.CurrentNews.Content
+
+        </p>
+
+
+
+        <div class="related-news">
+            <div class="related-news-header">
+                <h5 class="related-news-title">
+                    اخبار ذات صلة 
+                </h5>
+                <a href="/News/Index" class="related-news-link">
+                    الذهاب لصفحة الاخبار
+                </a>
+            </div>
+            <div class="row related-news-gallery">
+                @foreach(var news in Model.RelatedNews)
+            {
+
+                <div class="card col-md-3">
+                    <img src="http://101.44.222.243:3000/Images/NewsImages/@news.Image" alt="new" class="card-img">
+                    <h6 class="card-text">@news.Title</h6>
+                    <div class="date-container">
+                        <small class="text-muted">@news.CreateTime.ToString()</small>
+                        <a asp-route-Id="@news.Id" asp-action="Details" class='read-more'>تابع القراءة</a>
+                    </div>
+                </div>
+            }
+        </div>
+        </div>
+    </div>
